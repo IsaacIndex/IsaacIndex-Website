@@ -29,23 +29,26 @@ body::-webkit-scrollbar-thumb{
 
 main{
 	margin-left: 5rem; /* 5 times the font size */
+    padding: 1rem;
 }
 
 .navbar{
 	width: 5rem;
-	height: 100vh;
+	min-height: 100vh; /*min-height is used as height not working on safari*/
 	position: fixed;
 	background-color: var(--bg-primary);
-    transition: 200ms ease;
+    transition: width 600ms ease;
+    overflow: scroll;
 }
 
 .navbar-nav{
-	list-style:none;
+	list-style: none;
 	padding: 0;
 	margin: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+    height: 100%    
 }
 
 .nav-item{
@@ -67,7 +70,7 @@ main{
 }
 
 .nav-link:hover{
-    filter: greyscale(0%) opacity (1);
+    filter: grayscale(0%) opacity (1);
     background: var(--bg-secondary);
     color: var(--text-secondary);
 
@@ -77,6 +80,7 @@ main{
 }
 
 .nav-link svg{
+    width: 2rem;
     min-width: 2rem;
     margin: 0 1.5rem;
 }
