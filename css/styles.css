@@ -27,19 +27,18 @@ body::-webkit-scrollbar-thumb{
 	background: #6649b8;
 }
 
-main{
-	margin-left: 5rem; /* 5 times the font size */
-    padding: 1rem;
-}
+main {
+	margin-left: 5rem;
+	padding: 1rem;
+	transition: var(--transition-speed);
+  }
 
 .navbar{
-	width: 5rem;
 	min-height: 100vh; /*min-height is used as height not working on safari*/
-	height: -webkit-fill-available;
+    transition: width var(--transition-speed) ease;
 	position: fixed;
 	background-color: var(--bg-primary);
-    transition: width 600ms ease;
-    overflow: -moz-hidden-unscrollable;
+	overflow:-moz-hidden-unscrollable;
 }
 
 .navbar-nav{
@@ -66,8 +65,8 @@ main{
     height: 5rem;
     color: var(--text-primary);
     text-decoration: none;
-    /* filter: grayscale(100%) opacity(0.7); */
-    transition: var(--transition-speed);
+    /* filter: grayscale(100%) opacity(0.7); 
+    transition: var(--transition-speed); */
 }
 
 .nav-link:hover{
@@ -77,8 +76,10 @@ main{
 }
 
 .link-text{
-    display: none;
+	visibility: hidden;
+  	opacity: 0;
     margin-left: 1rem;
+	transition: visibility 0s, opacity var(--transition-speed) linear;
 }
 
 .nav-link svg{
@@ -86,14 +87,6 @@ main{
     min-width: 2rem;
     margin: 0 1.5rem;
 	/* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); */
-}
-
-.navbar:hover{
-    width: 16rem;
-}
-
-.navbar:hover .link-text{
-    display: block;
 }
 
 .navbar-svg{
@@ -105,7 +98,7 @@ main{
     fill: #00faed;
 }
 
-@media only screen and (max-width: 600px){
+/* @media only screen and (max-width: 600px){
 	.navbar {
 		bottom: 0;
 		width: 100vw;
@@ -125,29 +118,25 @@ main{
 		margin: 0;
 	  }
 }
-
+*/
 @media only screen and (min-width: 600px){
 	.navbar {
 		top: 0;
 		width: 5rem;
 		height: 100vh;
-	  }
-	
-	  .navbar:hover {
+	}
+	  
+	.navbar:hover {
 		width: 16rem;
-	  }
-	
-	  .navbar:hover .link-text {
-		display: inline;
-	  }
-	
-	  .navbar:hover .logo svg
-	  {
-		margin-left: 11rem;
-	  }
-	
-	  .navbar:hover .logo-text
-	  {
-		left: 0px;
-	  }
-}
+	}
+
+	.navbar:hover .link-text{
+		visibility: visible;
+		  opacity: 1;
+	}
+
+	.navbar:hover + main{
+		margin-left: 16rem;
+		padding: 1rem;
+	}
+} 
