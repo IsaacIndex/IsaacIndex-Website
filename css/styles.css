@@ -48,7 +48,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 
 .nav-item{
@@ -98,7 +98,7 @@ main {
     fill: #00faed;
 }
 
-/* @media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px){
 	.navbar {
 		bottom: 0;
 		width: 100vw;
@@ -118,7 +118,7 @@ main {
 		margin: 0;
 	  }
 }
-*/
+
 @media only screen and (min-width: 600px){
 	.navbar {
 		top: 0;
